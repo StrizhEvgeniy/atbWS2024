@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import TodoList from "./components/todoList/TodoList";
+import { Provider } from "react-redux";
+import Clicker from "./components/clicker/Clicker";
 
 import "./index.css";
+import { store } from "./store";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <TodoList />
+    <Provider store={store}>
+      <Clicker />
+    </Provider>
   </React.StrictMode>
 );
