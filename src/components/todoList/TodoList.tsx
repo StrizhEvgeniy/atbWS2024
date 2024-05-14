@@ -53,7 +53,7 @@ export default function TodoList() {
   return (
     <>
       {todos.map(({ title, completed }, index) => (
-        <Todo key={index} title={title} description={""} isDone={completed} />
+        <Todo key={index} {...{ title }} description={""} isDone={completed} />
       ))}
     </>
   );
