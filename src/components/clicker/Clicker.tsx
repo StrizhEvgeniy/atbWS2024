@@ -1,18 +1,20 @@
 import { Button } from "@mui/base";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import { increment } from "../../store/slices/counterSlice";
+import { decrement, increment } from "../../store/slices/counterSlice";
 
 export default function Clicker() {
   const count = useAppSelector(({ counter: { count } }) => count);
 
   const dispatch = useAppDispatch();
 
-  const handleClick = () => dispatch(increment());
+  const handlePlusClick = () => dispatch(increment(5));
+  const handleMinusClick = () => dispatch(decrement(7));
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <p style={{ textAlign: "center" }}>{count}</p>
-      <Button onClick={() => handleClick()}>+</Button>
+      <Button onClick={() => handlePlusClick()}>+</Button>
+      <Button onClick={() => handleMinusClick()}>-</Button>
     </div>
   );
 }
