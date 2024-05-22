@@ -10,6 +10,8 @@ type Todo = {
   completed: boolean;
 };
 
+const sum = (a, b) => a + b;
+
 export default function TodoList() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);

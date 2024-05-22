@@ -1,4 +1,5 @@
 import { Button } from "@mui/base";
+import { useCallback, useMemo } from "react";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { decrement, increment } from "../../store/slices/counterSlice";
 
@@ -7,8 +8,13 @@ export default function Clicker() {
 
   const dispatch = useAppDispatch();
 
-  const handlePlusClick = () => dispatch(increment(5));
-  const handleMinusClick = () => dispatch(decrement(7));
+  const handlePlusClick = useCallback(() => dispatch(increment(5)), [dispatch]);
+  const handleMinusClick = useCallback(
+    () => dispatch(decrement(7)),
+    [dispatch]
+  );
+
+  const variable: number = useMemo(() => 0, []);
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>

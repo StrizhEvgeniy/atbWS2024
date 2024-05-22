@@ -31,6 +31,8 @@ export const NestedForm = ({ id }: { id: string }) => {
     name: "period",
   });
 
+  const { field } = control;
+
   return (
     <>
       <Form
